@@ -22,21 +22,21 @@ export function Certifications() {
 
   return (
     <section id="certifications" className="pt-8">
-      <div ref={ref} className={`fade-in ${inView ? 'in-view' : ''}`}>
-        <div className="section-label mb-8">[ CERTIFICATION_LOG ]</div>
+      <div ref={ref} className={`reveal ${inView ? 'in-view' : ''}`}>
+        <h2 className="section-heading">Certifications</h2>
 
         <div className="space-y-6">
           {certifications.map((cert, i) => (
-            <div key={i} className="bg-card border border-border p-8 hover:shadow-sm transition-shadow">
+            <div key={i} className="gradient-border-card p-8">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-4">
                 <div>
-                  <a href={cert.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 hover:text-cyan-500 transition-colors">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 transition-colors">{cert.title}</h3>
-                    <ExternalLink size={16} className="text-muted-foreground group-hover:text-cyan-500 transition-colors" />
+                  <a href={cert.link || "#"} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 transition-colors">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{cert.title}</h3>
+                    <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
                   </a>
-                  <div className="text-sm font-semibold text-cyan-500 mt-1">{cert.issuer}</div>
+                  <div className="text-sm font-semibold text-primary mt-1">{cert.issuer}</div>
                 </div>
-                <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest shrink-0">
+                <div className="text-xs font-medium text-muted-foreground/80 tracking-wide shrink-0">
                   {cert.date}
                 </div>
               </div>

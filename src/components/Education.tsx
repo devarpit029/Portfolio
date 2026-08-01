@@ -21,23 +21,23 @@ export function Education() {
 
   return (
     <section id="education" className="pt-8">
-      <div ref={ref} className={`fade-in ${inView ? 'in-view' : ''}`}>
-        <div className="section-label mb-8">[ ACADEMIC_RECORD ]</div>
+      <div ref={ref} className={`reveal ${inView ? 'in-view' : ''}`}>
+        <h2 className="section-heading">Education</h2>
 
         <div className="space-y-6">
           {education.map((edu, i) => (
-            <div key={i} className="bg-card border border-border p-8 hover:shadow-sm transition-shadow">
+            <div key={i} className="bg-card border border-border p-8 hover:shadow-md hover:border-foreground/10 transition-all duration-300">
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">{edu.degree}</h3>
-                  <div className="text-sm font-semibold text-cyan-500 mt-1">{edu.institution}</div>
+                  <div className="text-sm font-semibold text-primary mt-1">{edu.institution}</div>
                 </div>
-                <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest shrink-0 text-right">
+                <div className="text-xs font-medium text-muted-foreground/80 tracking-wide shrink-0 text-right">
                   {edu.date}
                 </div>
               </div>
 
-              <div className="text-sm font-mono text-foreground bg-muted/50 inline-block px-3 py-1 border border-border">
+              <div className="text-sm font-medium text-foreground bg-muted/50 inline-block px-3 py-1.5 border border-border/50 rounded-full">
                 {edu.score}
               </div>
             </div>

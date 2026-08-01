@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const NAV_ITEMS = [
+  { id: 'hero', label: 'Home' },
   { id: 'experience', label: 'Experience' },
   { id: 'systems', label: 'Projects' },
   { id: 'stack', label: 'Skills & Stack' },
@@ -58,14 +59,14 @@ export function SidebarNav() {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`flex items-center gap-4 text-xs font-mono group transition-colors ${
-              isActive ? 'text-cyan-500 font-bold' : 'text-muted-foreground hover:text-foreground'
+            className={`flex items-center gap-4 text-xs font-medium group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm ${
+              isActive ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {/* The dot */}
             <div
               className={`w-3 h-3 rounded-full border-2 transition-colors z-10 ${
-                isActive ? 'bg-cyan-500 border-cyan-500' : 'bg-background border-border group-hover:border-cyan-500'
+                isActive ? 'bg-primary border-primary' : 'bg-background border-border group-hover:border-primary'
               }`}
             />
             {/* The label */}

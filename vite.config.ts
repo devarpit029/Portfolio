@@ -20,6 +20,7 @@ export default defineConfig(({ command, mode }) => ({
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
             if (id.includes('lucide-react')) return 'icons'
+            if (id.includes('three') || id.includes('@react-three')) return 'three-vendor'
             if (id.includes('react') || id.includes('react-dom')) return 'react-vendor'
             return 'vendor'
           }
@@ -48,6 +49,6 @@ export default defineConfig(({ command, mode }) => ({
   },
   // Optimize dependencies
   optimizeDeps: {
-    include: ['react', 'react-dom', 'lucide-react'],
+    include: ['react', 'react-dom', 'lucide-react', 'three', '@react-three/fiber', '@react-three/drei'],
   },
 }))
