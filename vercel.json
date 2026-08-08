@@ -24,6 +24,6 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    { "source": "/profile.png", "destination": "/profile.webp", "permanent": true }
+    { "source": "/profile.png", "destination": "/profile.jpeg", "permanent": true }
   ]
 }

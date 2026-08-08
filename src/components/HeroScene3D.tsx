@@ -42,16 +42,38 @@ function Shape({
         <MeshDistortMaterial
           color={color}
           transparent
-          opacity={0.2}
-          distort={0.2}
-          speed={0.3}
+          opacity={0.22}
+          distort={0.25}
+          speed={0.35}
           emissive={color}
-          emissiveIntensity={0.3}
-          roughness={0.4}
-          metalness={0.5}
+          emissiveIntensity={0.45}
+          roughness={0.35}
+          metalness={0.55}
         />
       </mesh>
     </Float>
+  );
+}
+
+/** Slowly spinning portal ring — a nod to the Sling Ring / Sanctum portals. */
+function PortalRing({ position, radius, color, speed }: {
+  position: [number, number, number];
+  radius: number;
+  color: string;
+  speed: number;
+}) {
+  const ref = useRef<THREE.Mesh>(null);
+
+  useFrame((_, delta) => {
+    if (!ref.current) return;
+    ref.current.rotation.z += delta * speed;
+  });
+
+  return (
+    <mesh ref={ref} position={position} rotation={[Math.PI / 2.4, 0.3, 0]}>
+      <torusGeometry args={[radius, 0.012, 16, 100]} />
+      <meshBasicMaterial color={color} transparent opacity={0.35} />
+    </mesh>
   );
 }
 
@@ -77,27 +99,33 @@ function SceneContent() {
   const shapes = useMemo(() => [
     {
       index: 0, position: [-5, 2, -5] as [number, number, number],
-      color: '#8B5CF6', scale: 1.5,
+      color: '#F97316', scale: 1.5, // mystic orange
       geometry: new THREE.IcosahedronGeometry(0.7, 0),
     },
     {
       index: 1, position: [5, -2, -6] as [number, number, number],
-      color: '#22D3EE', scale: 1.3,
+      color: '#22D3EE', scale: 1.3, // electric cyan
       geometry: new THREE.OctahedronGeometry(0.65, 0),
     },
     {
       index: 2, position: [0, 4, -7] as [number, number, number],
-      color: '#A78BFA', scale: 1.8,
+      color: '#FB923C', scale: 1.8, // warm ember
       geometry: new THREE.TorusKnotGeometry(0.4, 0.15, 48, 6),
     },
+  ], []);
+
+  const rings = useMemo(() => [
+    { position: [-4, 0, -8] as [number, number, number], radius: 1.6, color: '#F97316', speed: 0.12 },
+    { position: [4.5, 1.5, -9] as [number, number, number], radius: 1.1, color: '#22D3EE', speed: -0.18 },
   ], []);
 
   return (
     <>
       <ambientLight intensity={0.3} />
-      <directionalLight position={[5, 5, 5]} intensity={0.5} color="#8B5CF6" />
-      <directionalLight position={[-3, -2, 3]} intensity={0.2} color="#22D3EE" />
+      <directionalLight position={[5, 5, 5]} intensity={0.75} color="#F97316" />
+      <directionalLight position={[-3, -2, 3]} intensity={0.4} color="#22D3EE" />
       {shapes.map((s) => <Shape key={s.index} {...s} />)}
+      {rings.map((r, i) => <PortalRing key={i} {...r} />)}
     </>
   );
 }

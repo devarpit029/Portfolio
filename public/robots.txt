@@ -1,15 +1,3 @@
-# Robots.txt for Venu Gopal Reddy Palugulla Portfolio
-# Allow all crawlers
+# Robots.txt for Arpit Nigam's Portfolio
 User-agent: *
 Allow: /
-
-# Disallow search/filter URLs and non-content paths
-Disallow: /*?*
-Disallow: /*.json$
-Disallow: /*.xml$
-
-# Sitemap location
-Sitemap: https://venugopalreddy.vercel.app/sitemap.xml
-
-# Host
-Host: https://venugopalreddy.vercel.app

@@ -1,7 +1,7 @@
 ---
 version: 2.0
 name: portfolio-design-system
-description: Venu Gopal Reddy Palugulla — Full Stack AI Engineer portfolio. Premium OLED dark-first with purple-cyan palette, WebGL particle hero, and cinematic motion.
+description: Arpit Nigam portfolio. Premium OLED dark-first with purple-cyan palette, WebGL particle hero, and cinematic motion.
 ---
 
 # Portfolio Design System
@@ -135,7 +135,7 @@ All animations disabled when `prefers-reduced-motion: reduce`. Sections appear i
 - Canvas particles check reduced motion before starting
 
 ## New Sections
-- **Case Studies** — Deep-dive cards for PicScore and RoastMyCV with architecture diagrams and live metrics
+- **Projects** — Cards showcasing practical web and machine-learning projects
 - **Testimonials** — Social proof carousel with avatars and quotes
 - **GitHub/LeetCode Stats** — Live API-driven contribution data, cached client-side
 

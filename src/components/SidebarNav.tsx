@@ -63,10 +63,12 @@ export function SidebarNav() {
               isActive ? 'text-primary font-bold' : 'text-muted-foreground hover:text-foreground'
             }`}
           >
-            {/* The dot */}
+            {/* The dot — glows and radar-pings when active */}
             <div
-              className={`w-3 h-3 rounded-full border-2 transition-colors z-10 ${
-                isActive ? 'bg-primary border-primary' : 'bg-background border-border group-hover:border-primary'
+              className={`relative w-3 h-3 rounded-full border-2 transition-colors z-10 ${
+                isActive
+                  ? 'bg-primary border-primary nav-ping shadow-[0_0_10px_hsl(var(--primary))]'
+                  : 'bg-background border-border group-hover:border-primary'
               }`}
             />
             {/* The label */}
